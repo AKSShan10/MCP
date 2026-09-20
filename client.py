@@ -17,14 +17,6 @@ MCP_SERVERS = {
         "args": ["D:\\BJIT\\MCP\\main.py"],
         "transport": "stdio",
     },
-    # "weather": {
-    #     "command": "D:\\BJIT\\MCP\\venv\\Scripts\\uvx.EXE",
-    #     "args": ["--from", "git+https://github.com/adhikasp/mcp-weather.git", "mcp-weather"],
-    #     "env": {
-    #         "ACCUWEATHER_API_KEY": "zpka_04af9433b6e54d39a59f3b15fe8f325d_a701e2b6"
-    #     },
-    #     "transport": "stdio",
-    # },
     "weather": {
         "command": "D:\\BJIT\\MCP\\venv\\Scripts\\python.exe",
         "args": ["D:\\BJIT\\MCP\\weather_server.py"],

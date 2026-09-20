@@ -4,7 +4,7 @@ import json
 
 mcp = FastMCP(name="Weather Server")
 
-API_KEY = "zpka_04af9433b6e54d39a59f3b15fe8f325d_a701e2b6"
+API_KEY = "Enter your key here"  # Replace with your actual AccuWeather API key
 
 @mcp.tool()
 def get_weather(location: str) -> str:
