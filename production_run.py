@@ -39,5 +39,12 @@ def random_number(min_value: int = 0, max_value: int = 100) -> int:
     result = random.randint(min_value, max_value)
     return f"{result} [Powered by My Custom Tools Server]"
 
+# if __name__ == "__main__":
+#     mcp.run(transport="http", port=8000)
+
 if __name__ == "__main__":
-    mcp.run(transport="http", port=8000)
+    import sys
+    if "--http" in sys.argv:
+        mcp.run(transport="http", port=8000)
+    else:
+        mcp.run()
