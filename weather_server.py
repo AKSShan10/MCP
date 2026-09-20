@@ -1,10 +1,14 @@
 from mcp.server.fastmcp import FastMCP
 import urllib.request
 import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 mcp = FastMCP(name="Weather Server")
 
-API_KEY = "Enter your key here"  # Replace with your actual AccuWeather API key
+API_KEY = os.environ.get("ACCUWEATHER_API_KEY", "")
 
 @mcp.tool()
 def get_weather(location: str) -> str:

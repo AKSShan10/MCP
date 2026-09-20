@@ -20,9 +20,6 @@ MCP_SERVERS = {
     "weather": {
         "command": "D:\\BJIT\\MCP\\venv\\Scripts\\python.exe",
         "args": ["D:\\BJIT\\MCP\\weather_server.py"],
-        "env": {
-            "ACCUWEATHER_API_KEY": os.getenv("ACCUWEATHER_API_KEY")
-        },
         "transport": "stdio",
     },
     "manim-server": {
