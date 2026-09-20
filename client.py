@@ -8,7 +8,8 @@ from langchain_mcp_adapters.client import MultiServerMCPClient
 from langgraph.prebuilt import create_react_agent
 
 nest_asyncio.apply()
-load_dotenv()
+# load_dotenv()
+load_dotenv("D:\\BJIT\\MCP\\.env")
 
 # --- MCP Server Configuration ---
 MCP_SERVERS = {
@@ -28,6 +29,11 @@ MCP_SERVERS = {
         "env": {
             "MANIM_EXECUTABLE": "D:\\BJIT\\MCP\\venv\\Scripts\\manim.exe"
         },
+        "transport": "stdio",
+    },
+    "dictionary": {
+        "command": "D:\\BJIT\\MCP\\venv\\Scripts\\python.exe",
+        "args": ["D:\\BJIT\\MCP\\dictionary_server.py"],
         "transport": "stdio",
     },
 }

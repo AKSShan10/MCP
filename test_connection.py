@@ -56,21 +56,45 @@
 #
 # asyncio.run(test())
 
+# import asyncio
+# from langchain_mcp_adapters.client import MultiServerMCPClient
+#
+# async def test():
+#     client = MultiServerMCPClient({
+#         "weather": {
+#             "command": "D:\\BJIT\\MCP\\venv\\Scripts\\python.exe",
+#             "args": ["D:\\BJIT\\MCP\\weather_server.py"],
+#             "transport": "stdio",
+#         },
+#     })
+#     tools = await client.get_tools()
+#     for t in tools:
+#         print(f"Tool: {t.name}")
+#         result = await t.ainvoke({"location": "Dhaka"})
+#         print(f"Result: {result}")
+#
+# asyncio.run(test())
+
+# Update test_connection.py to:
 import asyncio
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
 async def test():
     client = MultiServerMCPClient({
-        "weather": {
+        "dictionary": {
             "command": "D:\\BJIT\\MCP\\venv\\Scripts\\python.exe",
-            "args": ["D:\\BJIT\\MCP\\weather_server.py"],
+            "args": ["D:\\BJIT\\MCP\\dictionary_server.py"],
             "transport": "stdio",
         },
     })
     tools = await client.get_tools()
+    print("Tools:", [t.name for t in tools])
     for t in tools:
-        print(f"Tool: {t.name}")
-        result = await t.ainvoke({"location": "Dhaka"})
-        print(f"Result: {result}")
+        if t.name == "define_word":
+            result = await t.ainvoke({"word": "python"})
+            print(f"Define result: {result}")
+        if t.name == "translate_text":
+            result = await t.ainvoke({"text": "Hello world", "target_language": "bn"})
+            print(f"Translate result: {result}")
 
 asyncio.run(test())
